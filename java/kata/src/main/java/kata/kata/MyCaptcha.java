@@ -17,15 +17,9 @@ public class MyCaptcha {
 		left = mappingNumber(left);
 		right = mappingNumber(right);
 
-		int result = 0;
-		if (operator.equals("+")) {
-			result = Integer.parseInt(left) + Integer.parseInt(right);
-		} else if (operator.equals("-")) {
-			result = Integer.parseInt(left) - Integer.parseInt(right);
-		} else if (operator.equals("*")) {
-			result = Integer.parseInt(left) * Integer.parseInt(right);
-		}
-		return result;
+		
+		Operation operation = new Operation( left, operator, right );
+		return operation.compute();
 	}
 
 	public String mappingNumber(String input) {

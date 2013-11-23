@@ -12,6 +12,9 @@ public class CaptchaTest {
 		MyCaptcha myCaptcha = new MyCaptcha();
 		int result = myCaptcha.process("1", "+", "1");
 		assertEquals(2, result);
+		
+		result = myCaptcha.process("one", "+", "1");
+		assertEquals(2, result);
 	}
 	
 }

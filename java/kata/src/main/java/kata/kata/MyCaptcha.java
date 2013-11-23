@@ -4,29 +4,38 @@ import java.util.HashMap;
 
 public class MyCaptcha {
 
+	public int process(String left, String operator, String right) {
+		Node leftNode = new Node(left);
+		Node rightNode = new Node(right);
+
+		Operation operation = new Operation(leftNode, rightNode, operator);
+		return operation.compute();
+	}
+
+}
+
+class Node {
 	private HashMap<String, String> numberMap = new HashMap<String, String>();
 
-	public MyCaptcha() {
+	public void init() {
 		numberMap.put("one", "1");
 		numberMap.put("two", "2");
 		numberMap.put("three", "3");
 		numberMap.put("five", "5");
 	}
 
-	public int process(String left, String operator, String right) {
-		left = mappingNumber(left);
-		right = mappingNumber(right);
+	private String input;
 
-		
-		Operation operation = new Operation( left, operator, right );
-		return operation.compute();
+	public Node(String input) {
+		this.input = input;
+		init();
 	}
 
-	public String mappingNumber(String input) {
+	public int convert() {
 		if (numberMap.containsKey(input)) {
-			return numberMap.get(input);
+			return Integer.parseInt(numberMap.get(input));
 		}
-		return input;
+		return Integer.parseInt(input);
 	}
 
 }

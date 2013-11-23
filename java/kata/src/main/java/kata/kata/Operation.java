@@ -2,24 +2,24 @@ package kata.kata;
 
 public class Operation {
 
-	private String left;
+	private Node leftNode;
 	private String operator;
-	private String right;
+	private Node rightNode;
 
-	public Operation(String left, String operator, String right) {
-		this.left = left;
+	public Operation(Node leftNode, Node rightNode, String operator) {
+		this.leftNode = leftNode;
 		this.operator = operator;
-		this.right = right;
+		this.rightNode = rightNode;
 	}
 
 	public int compute() {
 		int result = 0;
 		if (operator.equals("+")) {
-			result = Integer.parseInt(left) + Integer.parseInt(right);
+			result = leftNode.convert() + rightNode.convert();
 		} else if (operator.equals("-")) {
-			result = Integer.parseInt(left) - Integer.parseInt(right);
+			result = leftNode.convert() - rightNode.convert();
 		} else if (operator.equals("*")) {
-			result = Integer.parseInt(left) * Integer.parseInt(right);
+			result = leftNode.convert() * rightNode.convert();
 		}
 		return result;
 	}

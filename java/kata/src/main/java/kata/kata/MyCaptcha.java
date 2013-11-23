@@ -12,13 +12,9 @@ public class MyCaptcha {
 	}
 
 	public int process(String left, String operator, String right) {
-		if (numberMap.containsKey(left)) {
-			left = numberMap.get(left);
-		}
-		if (numberMap.containsKey(right)) {
-			left = numberMap.get(right);
-		}
-
+		left = mappingNumber(left);
+		right = mappingNumber(right);
+		
 		int result = 0;
 		if (operator.equals("+")) {
 			result = Integer.parseInt(left) + Integer.parseInt(right);
@@ -26,6 +22,13 @@ public class MyCaptcha {
 			result = Integer.parseInt(left) - Integer.parseInt(right);
 		}
 		return result;
+	}
+
+	public String mappingNumber(String input) {
+		if (numberMap.containsKey(input)) {
+			return numberMap.get(input);
+		}
+		return input;
 	}
 
 }

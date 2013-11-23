@@ -8,18 +8,22 @@ public class MyCaptcha {
 
 	public MyCaptcha() {
 		numberMap.put("one", "1");
+		numberMap.put("two", "2");
 		numberMap.put("three", "3");
+		numberMap.put("five", "5");
 	}
 
 	public int process(String left, String operator, String right) {
 		left = mappingNumber(left);
 		right = mappingNumber(right);
-		
+
 		int result = 0;
 		if (operator.equals("+")) {
 			result = Integer.parseInt(left) + Integer.parseInt(right);
 		} else if (operator.equals("-")) {
 			result = Integer.parseInt(left) - Integer.parseInt(right);
+		} else if (operator.equals("*")) {
+			result = Integer.parseInt(left) * Integer.parseInt(right);
 		}
 		return result;
 	}

@@ -27,4 +27,14 @@ public class CaptchaTest {
 		assertEquals(2, result);
 	}
 	
+	@Test
+	public void whenFiveMultiplyTwoShouldSeeTen() throws Exception {
+		MyCaptcha myCaptcha = new MyCaptcha();
+		int result = myCaptcha.process("5", "*", "2");
+		assertEquals(10, result);
+		
+		result = myCaptcha.process("five", "*", "two");
+		assertEquals(10, result);
+	}
+	
 }

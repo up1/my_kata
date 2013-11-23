@@ -17,4 +17,14 @@ public class CaptchaTest {
 		assertEquals(2, result);
 	}
 	
+	@Test
+	public void whenThreeMinusOneShouldSeeTwo() throws Exception {
+		MyCaptcha myCaptcha = new MyCaptcha();
+		int result = myCaptcha.process("3", "-", "1");
+		assertEquals(2, result);
+		
+		result = myCaptcha.process("three", "-", "1");
+		assertEquals(2, result);
+	}
+	
 }
